@@ -13,8 +13,8 @@ import java.util.Scanner;
  */
 public class ComposeTest {
 
-	private List<Integer> iList = new ArrayList<Integer>();
-	private Map<Integer, String> map = new HashMap<Integer, String>();
+	private List<Integer> iList = new ArrayList<Integer>();//存储输入参数（Store input parameters）
+	private Map<Integer, String> map = new HashMap<Integer, String>();//存储数字对应字母（Store numeric correspondence letters）
 	private Scanner sc = new Scanner(System.in);
 
 	public ComposeTest() {
