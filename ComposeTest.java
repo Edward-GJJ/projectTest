@@ -30,24 +30,33 @@ public class ComposeTest {
 		map.put(9, "wxyz");
 	}
 
-	// 判断输入的在输入0-99是否包含以下字符，包含*#输出1
-	//Determine whether the input 0-99 contains the following characters,including *# output 1
-	public int content(String str) {
+	//主程序入口
+	public static void main(String[] args) {
+		ComposeTest composeTest = new ComposeTest();
+		composeTest.run();
+	}
+	
+	//方法运行入口
+	//Method Running Entry
+	public void run() {
+		while (true) {
+			System.out.print("信息：请在Input中输入参数，例如 arr []= {2,3} 或  arr []= {23} 。\n");
+			System.out.println("message：Please enter parameters in Input, such as arr []= {2,3} or arr []= {23}.");
+			System.out.print("Input: ");
+			//接收输入参数
+			//Receiving input parameters
+			String line = sc.nextLine();
 
-		boolean	bFind = false;
-		for (int i = 0; i < str.length(); i++) {
-			if (str.charAt(i) == '#' || str.charAt(i) == '*') {
-				bFind = true;
+			if (false == formatValid(line)) {
 				continue;
 			}
-		}
 
-		if (bFind == true) {
-			return 1;
+			System.out.print("Output: ");
+			recycle("", 0);
+			System.out.println();
 		}
-
-		return 0;
 	}
+	
 
 	// 判断输入的格式是否合法，比如 arr[] = {2,3}
 	//Determine whether the input format is legitimate, such as arr []= {2,3}
@@ -120,6 +129,26 @@ public class ComposeTest {
 
 		return true;
 	}
+	
+	
+	// 判断输入的在输入0-99是否包含以下字符，包含*#输出1
+	//Determine whether the input 0-99 contains the following characters,including *# output 1
+	public int content(String str) {
+		boolean	bFind = false;
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) == '#' || str.charAt(i) == '*') {
+				bFind = true;
+				continue;
+			}
+		}
+
+		if (bFind == true) {
+			return 1;
+		}
+
+		return 0;
+	}
+	
 
 	//每组的组合给分析出来
 	//The combination of each group is analyzed.
@@ -136,30 +165,5 @@ public class ComposeTest {
 			}
 		}
 	}
-
-	//方法运行入口
-	//Method Running Entry
-	public void run() {
-		while (true) {
-			System.out.print("信息：请在Input中输入参数，例如 arr []= {2,3} 或  arr []= {23} 。\n");
-			System.out.println("message：Please enter parameters in Input, such as arr []= {2,3} or arr []= {23}.");
-			System.out.print("Input: ");
-			//接收输入参数
-			//Receiving input parameters
-			String line = sc.nextLine();
-
-			if (false == formatValid(line)) {
-				continue;
-			}
-
-			System.out.print("Output: ");
-			recycle("", 0);
-			System.out.println();
-		}
-	}
-
-	public static void main(String[] args) {
-		ComposeTest composeTest = new ComposeTest();
-		composeTest.run();
-	}
+	
 }
